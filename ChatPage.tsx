@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import { supabase } from './supabase';
-import { ChatSidebar } from './ChatSidebar';
-import { ChatWindow } from './ChatWindow';
-import { ChatInput } from '../components/ChatInput';
-import { Navbar } from './Navbar';
-import { SettingsModal } from './SettingsModal';
+import { ChatSidebar } from './components/ChatSidebar';
+import { ChatWindow } from './components/ChatWindow';
+import { ChatInput } from './components/ChatInput';
+import { Navbar } from './components/Navbar';
+import { SettingsModal } from './components/SettingsModal';
 import { Message, Chat } from './types';
 
 export function ChatPage() {
