@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import { SplashScreen } from './components/SplashScreen';
-import { LoginPage } from './pages/LoginPage';
-import { SignupPage } from './pages/SignupPage';
-import { ChatPage } from './pages/ChatPage';
+import { AuthProvider, useAuth } from './AuthContext';
+import { SplashScreen } from './SplashScreen';
+import { LoginPage } from './LoginPage';
+import { SignupPage } from './SignupPage';
+import { ChatPage } from './ChatPage';
 
 function AppRoutes() {
   const { user, loading } = useAuth();
