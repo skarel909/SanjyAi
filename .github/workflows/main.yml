@@ -20,28 +20,30 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - run: npm run build
+      - name: Build web
+        run: npm run build
 
-      - run: npm install @capacitor/core @capacitor/cli @capacitor/android
+      - name: Install Capacitor
+        run: npm install @capacitor/core @capacitor/cli @capacitor/android
 
-      - run: |
-          npx cap init Sanjy com.sanjy.app --web-dir=dist || true
+      - name: Init Capacitor
+        run: npx cap init "Sanjy" "com.sanjy.app" --web-dir=dist
 
-      - run: |
-          npx cap add android || true
+      - name: Add Android
+        run: npx cap add android
 
-      - run: |
+      - name: Sync Android
+        run: npx cap sync android
+
+      - name: Build APK
+        run: |
           cd android
           chmod +x gradlew
-          ./gradlew clean
-
-      - run: npx cap sync android
-
-      - run: |
-          cd android
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug \
+            -Dorg.gradle.java.home=$JAVA_HOME
 
       - uses: actions/upload-artifact@v4
         with:
