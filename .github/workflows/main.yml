@@ -1,5 +1,4 @@
 name: Build Sanjy APK
-name: Build Sanjy APK
 
 on:
   workflow_dispatch:
@@ -27,11 +26,9 @@ jobs:
 
       - run: npm install @capacitor/core @capacitor/cli @capacitor/android
 
-      - run: npx cap init "Sanjy" "com.sanjy.app" --web-dir=dist
-
       - run: npx cap add android
 
-      - run: npx cap sync
+      - run: npx cap sync android
 
       - run: |
           cd android
