@@ -38,6 +38,16 @@ jobs:
       - name: Fix Kotlin conflict
         run: |
           echo "kotlin.version=1.8.22" >> android/gradle.properties
+          cat >> android/app/build.gradle << 'EOF'
+
+          configurations.all {
+              resolutionStrategy {
+                  force "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+                  force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+                  force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
+              }
+          }
+          EOF
 
       - name: Sync Android
         run: npx cap sync android
